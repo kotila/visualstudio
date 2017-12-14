@@ -68,6 +68,7 @@
       <HintPath>C:\Windows\SysWOW64\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -80,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBaseTools.cs" />
     <Compile Include="FrmTools.cs">
       <SubType>Form</SubType>
     </Compile>

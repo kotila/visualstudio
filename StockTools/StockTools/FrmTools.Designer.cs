@@ -43,10 +43,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 133);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(874, 413);
+            this.dataGridView1.Size = new System.Drawing.Size(874, 354);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -80,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 132);
+            this.label2.Location = new System.Drawing.Point(64, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 4;
@@ -89,7 +89,7 @@
             // 
             // textSKU
             // 
-            this.textSKU.Location = new System.Drawing.Point(143, 122);
+            this.textSKU.Location = new System.Drawing.Point(143, 85);
             this.textSKU.Name = "textSKU";
             this.textSKU.Size = new System.Drawing.Size(100, 21);
             this.textSKU.TabIndex = 5;
@@ -98,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(298, 132);
+            this.label3.Location = new System.Drawing.Point(298, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 6;
@@ -107,7 +107,7 @@
             // 
             // textAmount
             // 
-            this.textAmount.Location = new System.Drawing.Point(348, 122);
+            this.textAmount.Location = new System.Drawing.Point(348, 85);
             this.textAmount.Name = "textAmount";
             this.textAmount.Size = new System.Drawing.Size(100, 21);
             this.textAmount.TabIndex = 7;
@@ -115,7 +115,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(548, 120);
+            this.btnUpdate.Location = new System.Drawing.Point(548, 83);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 8;
