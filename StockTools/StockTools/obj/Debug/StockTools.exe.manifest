@@ -54,24 +54,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockTools.exe" size="14848">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockTools.exe" size="17408">
       <assemblyIdentity name="StockTools" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PgH20j2guBq3gQRN1bjTfbZOcetPmGu2VwqPoJBkBaY=</dsig:DigestValue>
+        <dsig:DigestValue>hEhhFfSg8BSaj3BmQnsaQBMn4ChzEzHpqrHp0nUEV7k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="StockTools.exe.config" size="189">
+  <file name="StockTools.exe.config" size="564">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rl5/qDc7Jz+tB+BIbOv9iMGPlRe6YJwrjmU09dnlPcs=</dsig:DigestValue>
+      <dsig:DigestValue>qZBhWCttjTFqnuX/yzUQe2kHJ7pGmOlyrDwwnUx9A8A=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -8,18 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-//using MysqlCo
 
 namespace StockTools
 {
     public partial class FrmTools : Form
     {
         private DataSet dsall;
-        //private static String mysqlcon = "database=storage_db;Password=root123;User ID=root;server=localhost";
-        private static String mysqlcon = "database=storage_db;Password=equery!@#*();User ID=root;server=54.217.254.166";
-        private MySqlConnection conn;
-        //private MysqlConnection myconn;
-        private MySqlDataAdapter mDataAdapter;
+        //private static String mysqlcon = "database=storage_db;Password=equery!@#*();User ID=root;server=54.217.254.166";
+
+        private DataBaseTools dbtools = new DataBaseTools();
+
         public FrmTools()
         {
             InitializeComponent();
@@ -29,8 +27,7 @@ namespace StockTools
             DataColumn ADC2 = new DataColumn("table_name", typeof(string));
             ADt.Columns.Add(ADC1);
             ADt.Columns.Add(ADC2);
-            //for (int i = 0; i < 3; i++)
-            //{
+
             DataRow ADR = ADt.NewRow();
             ADR[0] = "库存表";
             ADR[1] = "commstock_stock";
@@ -53,14 +50,14 @@ namespace StockTools
             cmbTableList.ValueMember = "table_name";//控件值的列名  
             cmbTableList.DataSource = ADt;
             cmbTableList.SelectedIndex = 0;
+
+            dbtools.OpenConn();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
-                conn = new MySqlConnection(mysqlcon);
-
                 string szTableName;
                 string strQuerySQL="";
 
@@ -82,12 +79,25 @@ namespace StockTools
 
                 }
 
-                mDataAdapter = new MySqlDataAdapter(strQuerySQL, conn);
-                dsall = new DataSet();
-                mDataAdapter.Fill(dsall, szTableName);
+                dsall = dbtools.MySqlDataSet(strQuerySQL, szTableName);
 
 
-                dataGridView1.DataSource = dsall.Tables[szTableName];
+                System.Data.DataTable table = new DataTable();
+                System.Data.DataColumn column = new DataColumn();
+
+                column.ColumnName = "NO.";
+                column.AutoIncrement = true;
+                column.AutoIncrementSeed = 1;
+                column.AutoIncrementStep = 1;
+
+                table.Columns.Add(column);
+                table.Merge(dsall.Tables[0]);
+
+                //dataGridView1.DataSource = dsall.Tables[szTableName];
+                dataGridView1.DataSource = table;
+                dataGridView1.Columns["NO."].DisplayIndex = 0;//调整列顺序
+
+
             }
             catch (Exception ex)
             {
@@ -96,28 +106,21 @@ namespace StockTools
             finally
             {
 
-                conn.Close();
+                dbtools.CloseConn();
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            conn = new MySqlConnection(mysqlcon);
+
             int amount = Int32.Parse(textAmount.Text);
             int skuNum = Int32.Parse(textSKU.Text);
-            MySqlCommand SqlCmd;
-            //SqlCmd.Connection = conn;
-            //使用数据库连接对象连接数据库 
-            //conn.Open();
 
-            SqlCmd = new MySqlCommand("update commstock_stock set age=" + amount + " where commodity_id=skuNum ", conn);
-            SqlCmd.ExecuteNonQuery();
-            conn.Close();
-        }
+            string updateSql = "update commstock_stock set age=" + amount + " where commodity_id=skuNum ";
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            dbtools.MySqlExecuteNonQuery(updateSql);
 
         }
+
     }
 }

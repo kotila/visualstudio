@@ -81,14 +81,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBaseTools.cs" />
+    <Compile Include="Tools\DataBaseTools.cs" />
     <Compile Include="FrmTools.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTools.Designer.cs">
       <DependentUpon>FrmTools.cs</DependentUpon>
     </Compile>
-    <Compile Include="MysqlTools.cs" />
+    <Compile Include="Tools\MysqlTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmTools.resx">
