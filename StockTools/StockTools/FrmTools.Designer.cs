@@ -52,10 +52,17 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+<<<<<<< HEAD
             this.dataGridView1.Location = new System.Drawing.Point(3, 179);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(1194, 308);
+=======
+            this.dataGridView1.Location = new System.Drawing.Point(2, 132);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(1080, 355);
+>>>>>>> 656b9012250e77f6fa9b3e47ed561b683649250a
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
@@ -120,7 +127,10 @@
             this.textAmount.Name = "textAmount";
             this.textAmount.Size = new System.Drawing.Size(66, 21);
             this.textAmount.TabIndex = 7;
+<<<<<<< HEAD
             this.textAmount.TextChanged += new System.EventHandler(this.textAmount_TextChanged);
+=======
+>>>>>>> 656b9012250e77f6fa9b3e47ed561b683649250a
             // 
             // btnUpdate
             // 

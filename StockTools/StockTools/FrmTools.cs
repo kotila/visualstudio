@@ -72,8 +72,12 @@ namespace StockTools
                 }
                 if (szTableName.ToLower().Trim() == "commstock_stock")
                 {
+<<<<<<< HEAD
                     Flag = true;
                     strQuerySQL = "select id,batch_time, logic_quantity,quantity ,storage_id ,commodity_id,cargo_space_code from " + szTableName;
+=======
+                    strQuerySQL = "select id,batch_time, logic_quantity,quantity storage_id ,commodity_id from " + szTableName;
+>>>>>>> 656b9012250e77f6fa9b3e47ed561b683649250a
                 }
                 if (szTableName.ToLower().Trim() == "commstock_commodity")
                 {
@@ -147,6 +151,7 @@ namespace StockTools
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+<<<<<<< HEAD
             if (Flag==true)
             { long rowIndex = dataGridView1.CurrentCell.RowIndex; //是当前活动的单元格的行的索引
                 long columnIndex = dataGridView1.CurrentCell.ColumnIndex;
@@ -176,6 +181,18 @@ namespace StockTools
         private void textAmount_TextChanged(object sender, EventArgs e)
         {
 
+=======
+            long rowIndex=dataGridView1.CurrentCell.RowIndex; //是当前活动的单元格的行的索引
+            long columnIndex = dataGridView1.CurrentCell.ColumnIndex;
+            long rowIndex1 = dataGridView1.CurrentRow.Index; //获得包含当前单元格的行的索引
+            //dataGridView1.SelectedRows; //是选中行的集合
+//dataGridView1.SelectedColumns; //是选中列的集合
+//dataGridView1.SelectedCells; //是选中单元格的集合
+            //dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows].Cells[columnIndex];
+            dataGridView1.CurrentRow.Selected = true;
+            textAmount.Text = dataGridView1.CurrentRow.Cells["logic_quantity"].Value.ToString();
+            textSKU.Text = dataGridView1.CurrentRow.Cells["commodity_id"].Value.ToString();
+>>>>>>> 656b9012250e77f6fa9b3e47ed561b683649250a
         }
     }
 }

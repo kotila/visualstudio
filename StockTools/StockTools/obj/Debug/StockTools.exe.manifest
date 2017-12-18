@@ -54,14 +54,22 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockTools.exe" size="20480">
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockTools.exe" size="18432">
+>>>>>>> 656b9012250e77f6fa9b3e47ed561b683649250a
       <assemblyIdentity name="StockTools" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
         <dsig:DigestValue>4oZGgY+puDgwNXHkxU8fm2QBMQ8xSiaY3Xmb66r5qa8=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>91W47/kRDSTRg0IC/mJC0232SMa4OauWB1AEBamvKK0=</dsig:DigestValue>
+>>>>>>> 656b9012250e77f6fa9b3e47ed561b683649250a
       </hash>
     </dependentAssembly>
   </dependency>
