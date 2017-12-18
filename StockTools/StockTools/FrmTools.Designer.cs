@@ -43,11 +43,13 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 133);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 132);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1080, 354);
+            this.dataGridView1.Size = new System.Drawing.Size(1080, 355);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
             // cmbTableList
             // 
@@ -84,7 +86,6 @@
             this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 4;
             this.label2.Text = "SKU";
-            this.label2.Visible = false;
             // 
             // textSKU
             // 
@@ -92,7 +93,6 @@
             this.textSKU.Name = "textSKU";
             this.textSKU.Size = new System.Drawing.Size(100, 21);
             this.textSKU.TabIndex = 5;
-            this.textSKU.Visible = false;
             // 
             // label3
             // 
@@ -102,7 +102,6 @@
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 6;
             this.label3.Text = "数量";
-            this.label3.Visible = false;
             // 
             // textAmount
             // 
@@ -110,7 +109,6 @@
             this.textAmount.Name = "textAmount";
             this.textAmount.Size = new System.Drawing.Size(100, 21);
             this.textAmount.TabIndex = 7;
-            this.textAmount.Visible = false;
             // 
             // btnUpdate
             // 
