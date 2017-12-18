@@ -72,8 +72,6 @@ namespace StockTools
             da.Fill(ds, tableName);
             CloseConn();
 
-
-
             return ds;
         }
         #endregion

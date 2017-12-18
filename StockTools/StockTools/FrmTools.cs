@@ -14,6 +14,7 @@ namespace StockTools
     public partial class FrmTools : Form
     {
         private DataSet dsall;
+        private bool Flag;
         //private static String mysqlcon = "database=storage_db;Password=equery!@#*();User ID=root;server=54.217.254.166";
 
         private DataBaseTools dbtools = new DataBaseTools();
@@ -67,16 +68,17 @@ namespace StockTools
                     string sztemp = " and state<> 'SendFinished' and state<>'Editing' and state<>'Stoped' and state<>'' and state<>'Cancel'";
                     strQuerySQL = "select id,create_time,last_opr_time,state,submit_time,tenant_id,channel_service from " + szTableName + " " +
                         "where  app_form_type='Exwarehouse'" + sztemp;
-
+                    Flag = false;
                 }
                 if (szTableName.ToLower().Trim() == "commstock_stock")
                 {
-                    strQuerySQL = "select * from " + szTableName;
+                    Flag = true;
+                    strQuerySQL = "select id,batch_time, logic_quantity,quantity ,storage_id ,commodity_id,cargo_space_code from " + szTableName;
                 }
                 if (szTableName.ToLower().Trim() == "commstock_commodity")
                 {
                     strQuerySQL = "select id,name_cn,name_en,state,tenant_id from " + szTableName;
-
+                    Flag = false;
                 }
 
                 dsall = dbtools.MySqlDataSet(strQuerySQL, szTableName);
@@ -97,6 +99,10 @@ namespace StockTools
                 dataGridView1.DataSource = table;
                 dataGridView1.Columns["NO."].DisplayIndex = 0;//调整列顺序
 
+                textAmount.Text = "";
+                textSKU.Text = "";
+                textStock.Text = "";
+
 
             }
             catch (Exception ex)
@@ -112,15 +118,64 @@ namespace StockTools
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            //textStock.Text.Trim() == "" || textID.Text.Trim() == ""
+            if (textSKU.Text.Trim()=="" | textAmount.Text.Trim()== "" )
+            { return; }
+            //随机抽取一条数据记录：
+            //获得一个随机的仓位：
+            string tmpQuery = "SELECT cargo_space_code FROM   commstock_stock cs WHERE id >= ((SELECT MAX(id) FROM commstock_stock)-(SELECT      MIN(id) FROM commstock_stock)) * RAND() + (SELECT MIN(id) FROM commstock_stock)       LIMIT 1";
+            MySqlDataReader dr =dbtools.DataRead(tmpQuery);
+            String tmpStockSpace = dr.Read().ToString();    //此处不考虑数据库中数据为空的情况
+
 
             int amount = Int32.Parse(textAmount.Text);
             int skuNum = Int32.Parse(textSKU.Text);
 
+            //如果数量大于0 则增加一条记录，如果数量小于零，则查询一条记录，修改之
+
+            //明日继续：
             string updateSql = "update commstock_stock set age=" + amount + " where commodity_id=skuNum ";
 
             dbtools.MySqlExecuteNonQuery(updateSql);
 
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (Flag==true)
+            { long rowIndex = dataGridView1.CurrentCell.RowIndex; //是当前活动的单元格的行的索引
+                long columnIndex = dataGridView1.CurrentCell.ColumnIndex;
+                long rowIndex1 = dataGridView1.CurrentRow.Index; //获得包含当前单元格的行的索引
+                                                                 //dataGridView1.SelectedRows; //是选中行的集合
+                                                                 //dataGridView1.SelectedColumns; //是选中列的集合
+                                                                 //dataGridView1.SelectedCells; //是选中单元格的集合
+                                                                 //dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows].Cells[columnIndex];
+                dataGridView1.CurrentRow.Selected = true;
+                textAmount.Text = dataGridView1.CurrentRow.Cells["logic_quantity"].Value.ToString();
+                textSKU.Text = dataGridView1.CurrentRow.Cells["commodity_id"].Value.ToString();
+                textStock.Text = dataGridView1.CurrentRow.Cells["cargo_space_code"].Value.ToString();
+                textID.Text = dataGridView1.CurrentRow.Cells["id"].Value.ToString();
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
